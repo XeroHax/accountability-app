@@ -7,7 +7,7 @@ import AuthCheck from "@/components/AuthCheck";
 import { auth, db } from "@/lib/firebase";
 import { doc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
-
+// for git
 // CSS for responsive progress bar
 const progressBarStyles = `
   :root {
@@ -229,7 +229,7 @@ export default function GoalSetupPage() {
                       className="h-1 absolute top-3 z-10"
                       style={{
                         backgroundColor: "var(--progress-fill-color)",
-                        width: "var(--progress-width)"
+                        width: "var(--progress-width)",
                       }}
                     ></div>
 
@@ -241,7 +241,7 @@ export default function GoalSetupPage() {
                           className="w-6 h-6 rounded-full border-2 flex items-center justify-center"
                           style={{
                             borderColor: "var(--milestone-active-color)",
-                            backgroundColor: "var(--milestone-active-color)"
+                            backgroundColor: "var(--milestone-active-color)",
                           }}
                         >
                           <div className="w-2 h-2 rounded-full bg-white"></div>
@@ -253,11 +253,15 @@ export default function GoalSetupPage() {
                       <div className="flex flex-col items-center">
                         <div
                           className="w-6 h-6 rounded-full border-2 bg-white flex items-center justify-center"
-                          style={{ borderColor: "var(--milestone-active-color)" }}
+                          style={{
+                            borderColor: "var(--milestone-active-color)",
+                          }}
                         >
                           <div
                             className="w-2 h-2 rounded-full"
-                            style={{ backgroundColor: "var(--milestone-active-color)" }}
+                            style={{
+                              backgroundColor: "var(--milestone-active-color)",
+                            }}
                           ></div>
                         </div>
                         <div className="text-sm font-medium mt-2">Goals</div>
@@ -267,7 +271,9 @@ export default function GoalSetupPage() {
                       <div className="flex flex-col items-center">
                         <div
                           className="w-6 h-6 rounded-full border-2 bg-white"
-                          style={{ borderColor: "var(--milestone-inactive-color)" }}
+                          style={{
+                            borderColor: "var(--milestone-inactive-color)",
+                          }}
                         ></div>
                         <div className="text-sm font-medium mt-2">Price</div>
                       </div>
@@ -276,7 +282,9 @@ export default function GoalSetupPage() {
                       <div className="flex flex-col items-center">
                         <div
                           className="w-6 h-6 rounded-full border-2 bg-white"
-                          style={{ borderColor: "var(--milestone-inactive-color)" }}
+                          style={{
+                            borderColor: "var(--milestone-inactive-color)",
+                          }}
                         ></div>
                         <div className="text-sm font-medium mt-2">App</div>
                       </div>
@@ -372,7 +380,9 @@ export default function GoalSetupPage() {
                                 min="1"
                                 max="31"
                               />
-                              <span className="text-gray-600">time(s) every</span>
+                              <span className="text-gray-600">
+                                time(s) every
+                              </span>
                               <input
                                 type="text"
                                 value={task.period || ""}
@@ -465,7 +475,7 @@ export default function GoalSetupPage() {
                     className="h-1 absolute top-3 z-10"
                     style={{
                       backgroundColor: "var(--progress-fill-color)",
-                      width: "var(--progress-width)"
+                      width: "var(--progress-width)",
                     }}
                   ></div>
 
@@ -477,7 +487,7 @@ export default function GoalSetupPage() {
                         className="w-6 h-6 rounded-full border-2 flex items-center justify-center"
                         style={{
                           borderColor: "var(--milestone-active-color)",
-                          backgroundColor: "var(--milestone-active-color)"
+                          backgroundColor: "var(--milestone-active-color)",
                         }}
                       >
                         <div className="w-2 h-2 rounded-full bg-white"></div>
@@ -493,7 +503,9 @@ export default function GoalSetupPage() {
                       >
                         <div
                           className="w-2 h-2 rounded-full"
-                          style={{ backgroundColor: "var(--milestone-active-color)" }}
+                          style={{
+                            backgroundColor: "var(--milestone-active-color)",
+                          }}
                         ></div>
                       </div>
                       <div className="text-sm font-medium mt-2">Goals</div>
@@ -503,7 +515,9 @@ export default function GoalSetupPage() {
                     <div className="flex flex-col items-center">
                       <div
                         className="w-6 h-6 rounded-full border-2 bg-white"
-                        style={{ borderColor: "var(--milestone-inactive-color)" }}
+                        style={{
+                          borderColor: "var(--milestone-inactive-color)",
+                        }}
                       ></div>
                       <div className="text-sm font-medium mt-2">Price</div>
                     </div>
@@ -512,7 +526,9 @@ export default function GoalSetupPage() {
                     <div className="flex flex-col items-center">
                       <div
                         className="w-6 h-6 rounded-full border-2 bg-white"
-                        style={{ borderColor: "var(--milestone-inactive-color)" }}
+                        style={{
+                          borderColor: "var(--milestone-inactive-color)",
+                        }}
                       ></div>
                       <div className="text-sm font-medium mt-2">App</div>
                     </div>
@@ -534,7 +550,6 @@ export default function GoalSetupPage() {
                         — Roland Fisher
                       </figcaption>
                     </figure>
-
                     <div className="prose prose-slate mx-auto">
                       <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
                         <div className="flex-grow w-full md:w-2/3 order-first">
@@ -680,11 +695,7 @@ export default function GoalSetupPage() {
                           />
                         </div>
                         {!showChallenge && (
-                          <Button
-                            type="submit"
-                            className="w-full"
-                            size="lg"
-                          >
+                          <Button type="submit" className="w-full" size="lg">
                             Continue
                           </Button>
                         )}
@@ -717,11 +728,7 @@ export default function GoalSetupPage() {
                               required
                             />
                           </div>
-                          <Button
-                            type="submit"
-                            className="w-full"
-                            size="lg"
-                          >
+                          <Button type="submit" className="w-full" size="lg">
                             Continue to Tasks
                           </Button>
                         </form>
