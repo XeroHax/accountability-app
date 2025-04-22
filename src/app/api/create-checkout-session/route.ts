@@ -38,6 +38,31 @@ export async function POST(request: Request) {
     });
     console.log("Price created:", price.id);
 
+    // Determine the base URL to use for redirects
+    // In development, extract it from the request to handle dynamic ports
+    // In production, use the environment variable
+    const getBaseUrl = (request: Request) => {
+      // Check if we're in production
+      if (process.env.NODE_ENV === 'production') {
+        return process.env.NEXT_PUBLIC_SITE_URL;
+      }
+      
+      // In development, try to get the origin from the request
+      const requestHeaders = new Headers(request.headers);
+      const host = requestHeaders.get('host');
+      const protocol = requestHeaders.get('x-forwarded-proto') || 'http';
+      
+      if (host) {
+        return `${protocol}://${host}`;
+      }
+      
+      // Fallback to environment variable if we can't determine from request
+      return process.env.NEXT_PUBLIC_SITE_URL;
+    };
+    
+    const baseUrl = getBaseUrl(request);
+    console.log("Using base URL for redirects:", baseUrl);
+    
     // Create a checkout session
     console.log("Creating checkout session with client_reference_id:", userId);
     const session = await stripe.checkout.sessions.create({
@@ -49,8 +74,8 @@ export async function POST(request: Request) {
         },
       ],
       mode: "subscription",
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}`,
       client_reference_id: userId, // Add user ID as client reference
       metadata: {
         pricePerDay: pricePerDay.toString(),
